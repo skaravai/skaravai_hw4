@@ -13,13 +13,13 @@ public class HomeWork extends BaseHooks {
         MainPage mainPage = new MainPage(driver);
         BiographyPage biographyPage = new BiographyPage(driver);
 
-        //Это тестовый аккаунт для проверки теста (не личный!)
-        String login = "bmtstg@gmail.com";
-        String password = "Tester123";
-        String name = "Sergei";
-        String surname = "Karavai";
-        String firstContact = "123456";
-        String secondContact = "1234567";
+        //В тесте используются тестовые данные(не личные!)
+        String login = System.getenv("login");
+        String password = System.getenv("password");
+        String name = System.getenv("name");
+        String surname = System.getenv("surname");
+        String firstContact = System.getenv("firstContact");
+        String secondContact = System.getenv("secondContact");
 
         mainPage.openPage()
                 .clickLoginButton()
@@ -41,6 +41,7 @@ public class HomeWork extends BaseHooks {
         Assert.assertEquals("First contact не совпадает", firstContact, biographyPage.getFirstContact().getAttribute("value"));
         Assert.assertEquals("Second contact не совпадает", secondContact, biographyPage.getSecondContact().getAttribute("value"));
         //Удаляем контакты
-        biographyPage.clickDeleteButton();
+        biographyPage.clickDeleteButton()
+                .clickSaveButton();
     }
 }

@@ -2,8 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends AbstractPage {
 
@@ -16,14 +14,13 @@ public class MainPage extends AbstractPage {
     private By personalAcc = By.cssSelector("a[title='Личный кабинет']");
 
     public MainPage openPage() {
-        driver.get("https://otus.ru/"); //this.?
+        driver.get("https://otus.ru/");
         return new MainPage(driver);
     }
 
     public LoginPage clickLoginButton() {
         driver.findElement(loginButton).click();
         return new LoginPage(driver);
-
     }
 
     public PersonalAccountPage goToPersonalAccountPage() {

@@ -10,36 +10,37 @@ public class BiographyPage extends AbstractPage {
         super(driver);
     }
 
-    public BiographyPage enterName (String name) {
+    public BiographyPage enterName(String name) {
         driver.findElement(By.cssSelector("input[name='fname_latin']")).clear();
         driver.findElement(By.cssSelector("input[name='fname_latin']")).sendKeys(name);
         return new BiographyPage(driver);
 
     }
 
-    public BiographyPage enterSurname (String surname) {
+    public BiographyPage enterSurname(String surname) {
         driver.findElement(By.cssSelector("input[name='lname_latin']")).clear();
         driver.findElement(By.cssSelector("input[name='lname_latin']")).sendKeys(surname);
         return new BiographyPage(driver);
     }
 
-    public BiographyPage chooseTypeOK () {
+    public BiographyPage chooseTypeOK() {
         driver.findElement(By.cssSelector(".placeholder")).click();
         driver.findElement(By.cssSelector("button[title='OK']")).click();
         return new BiographyPage(driver);
     }
 
-    public BiographyPage chooseTypeVK () {
+    public BiographyPage chooseTypeVK() {
         driver.findElement(By.cssSelector(".placeholder")).click();
         driver.findElement(By.xpath("(//*[@title='VK'])[2]")).click();
         return new BiographyPage(driver);
     }
-    public BiographyPage enterFirstContact (String contact) {
+
+    public BiographyPage enterFirstContact(String contact) {
         driver.findElement(By.cssSelector("#id_contact-0-value")).sendKeys(contact);
         return new BiographyPage(driver);
     }
 
-    public BiographyPage enterSecondContact (String contact) {
+    public BiographyPage enterSecondContact(String contact) {
         driver.findElement(By.cssSelector("#id_contact-1-value")).sendKeys(contact);
         return new BiographyPage(driver);
     }

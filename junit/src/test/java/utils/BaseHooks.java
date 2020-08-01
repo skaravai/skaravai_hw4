@@ -12,24 +12,21 @@ public class BaseHooks {
     protected static WebDriver driver;
 
     @BeforeClass
-    public static void setup()
-    {
+    public static void setup() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
 
-//    @AfterClass
-//    public static void teardown()
-//    {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
+    @AfterClass
+    public static void teardown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
     @After
-    public void cleanUp()
-    {
+    public void cleanUp() {
         driver.manage().deleteAllCookies();
     }
 }

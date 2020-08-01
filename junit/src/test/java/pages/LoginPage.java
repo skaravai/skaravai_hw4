@@ -15,7 +15,7 @@ public class LoginPage extends AbstractPage {
 
     public LoginPage enterEmail(String login) {
         driver.findElement(emailField).sendKeys(login);
-        return new LoginPage(driver);  //для чего возвращать драйвер?
+        return new LoginPage(driver);
     }
 
     public LoginPage enterPassword(String password) {
@@ -28,7 +28,7 @@ public class LoginPage extends AbstractPage {
         return new LoginPage(driver);
     }
 
-    public MainPage authorization (String login, String password) {
+    public MainPage authorization(String login, String password) {
         this.enterEmail(login);
         this.enterPassword(password);
         this.clickEnterButton();
